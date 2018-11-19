@@ -1,0 +1,104 @@
+/* iphonex 兼容方案
+https://aotu.io/notes/2017/11/27/iphonex/index.html */
+
+html, body{
+  height: 100%;
+  width: 100%;
+}
+#root {
+  background: white;
+  height: 100%;
+  width: 100%;
+}
+/* iphonex 安全区域 */
+body {
+  margin: 0;
+  overflow-x: hidden;
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* iphonex fix元素适配 */
+.fixed {
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
+  position: fixed;
+  z-index: 10;
+  /* 具体应用位置，通过叠加css确定元素本身样式
+  width: 100%;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-color: #fff;
+  height: 50px; */
+}
+
+/* 样式覆盖，解决移动端滚动问题，避免容器模拟滚动，都采用body滚动，以及自己封装的滚动容器 */
+
+/*
+.am-tab-bar {
+  position: relative;
+  overflow: visible !important;
+}
+.am-tabs {
+  width: 100%;
+  overflow: visible !important;
+}
+.am-tabs-pane-wrap {
+  overflow-y: visible !important;
+}
+.am-tab-bar-item {
+  height: auto !important;
+  padding-bottom: 50px;
+}
+
+.am-tabs-tab-bar-wrap {
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  position: fixed;
+  width: 100%;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  z-index: 10;
+}
+*/
+
+.welcome-container {
+  background-image: url("assets/welcome-bg.jpg");
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+}
+
+.enter-btn {
+  width: 70%;
+  height: 40px;
+  background-color: #1C82F5;
+  color: white;
+  border: none;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin: 0 auto;
+}
+
+.welcome-float {
+  width: 100%;
+  position: absolute;
+  text-align: center;
+  top: 75%;
+}
+
+.preview-info {
+  /*background-image: url("assets/preview-bg.png");*/
+  height: 150px;
+  border: 0;
+
+}
+.preview-info .ant-card-meta-description {
+
+}
+
